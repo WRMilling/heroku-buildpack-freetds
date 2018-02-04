@@ -57,7 +57,6 @@ load_env_vars() {
   until [ -z "$env_var" ]; do [ -f "$ENV_DIR/$env_var" ] && export "$env_var=$(cat "$ENV_DIR/$env_var")"; shift ; env_var="${1:-}" ; done
 }
 load_env_vars "FREETDS_VERSION" "FREETDS_ARCHIVE_NAME" "TDS_VERSION" "FREETDS_REBUILD"
-
 FREETDS_VERSION="${FREETDS_VERSION:-1.00.21}"
 FREETDS_ARCHIVE_NAME="${FREETDS_ARCHIVE_NAME:-freetds-${FREETDS_VERSION}}"
 TDS_VERSION="${TDS_VERSION:-7.3}" # or TDSVER
@@ -192,6 +191,15 @@ main() {
   configure_buildpack_env_vars
 
   info "Install of FreeTDS ${FREETDS_VERSION} complete"
+  echo "***************************************"
+  echo "***************************************"
+  echo "***************************************"
+  echo $(which tsql)
+  echo $(find /tmp/app -name sybfront.h)
+  echo "***************************************"
+  echo "***************************************"
+  echo "***************************************"
+  echo "***************************************"
 }
 
 main
